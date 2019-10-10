@@ -1,33 +1,3 @@
-# lazy
-
-## Description
-Script written in Python3 that lists closed issues from a given GitHub repository from a certain
-date until now following Markdown syntax.
-
-## Installation
--   Clone the repo:
-```bash
-git clone https://github.com/AlvaroGarciaJaen/lazy
-```
-
--   Install the dependencies:
-```bash
-pipenv install
-```
-
-## Usage
-```bash
-pipenv run python lazy.py -u <user> -r <repo> -d <date>
-```
-
-## Example
-```bash
-pipenv run python lazy.py -u AlvaroGarciaJaen -r alreadycracked -d 08-10-2019
-```
-
-[Output](EXAMPLE.md): 
-
-```markdown
 [Documentación y estructura](https://github.com/AlvaroGarciaJaen/alreadycracked/milestone/1)
 -    [Actualizar README](https://github.com/AlvaroGarciaJaen/alreadycracked/issues/16)
 -    [Configurar gh-pages](https://github.com/AlvaroGarciaJaen/alreadycracked/issues/15)
@@ -45,4 +15,3 @@ pipenv run python lazy.py -u AlvaroGarciaJaen -r alreadycracked -d 08-10-2019
 [Desarrollo microservicio](https://github.com/AlvaroGarciaJaen/alreadycracked/milestone/6)
 -    [Añadir funciones al microservicio](https://github.com/AlvaroGarciaJaen/alreadycracked/issues/19)
 -    [Crear clase prototipo para el microservicio](https://github.com/AlvaroGarciaJaen/alreadycracked/issues/9)
-```

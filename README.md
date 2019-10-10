@@ -15,9 +15,20 @@ git clone https://github.com/AlvaroGarciaJaen/lazy
 pipenv install
 ```
 
+-   If you feel brave enough, you can always use pip straightaway:
+```bash
+pip3 install -r requirements.txt
+```
+
 ## Usage
 ```bash
 pipenv run python lazy.py -u <user> -r <repo> -d <date>
+```
+
+OR
+
+```bash
+python3 lazy.py -u <user> -r <repo> -d <date>
 ```
 
 ## Example

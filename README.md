@@ -25,7 +25,7 @@ pipenv run python lazy.py -u <user> -r <repo> -d <date>
 pipenv run python lazy.py -u AlvaroGarciaJaen -r alreadycracked -d 08-10-2019
 ```
 
-[Output](EXAMPLE.md): 
+Output example can be found [here](EXAMPLE.md): 
 
 ```markdown
 [Documentación y estructura](https://github.com/AlvaroGarciaJaen/alreadycracked/milestone/1)

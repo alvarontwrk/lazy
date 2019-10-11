@@ -38,26 +38,29 @@ def get_milestones_and_issues(data):
 
 
 def filter_by_date(milestones, issues, date):
-    actual_issues = {}
-    actual_milestones = {}
+    issues_in_scope = {}
+    milestones_in_scope = {}
     
     for i, v in issues.items():
         if v['date'] >= date:
-            actual_issues[i] = v
+            issues_in_scope[i] = v
     
-    for i, v in actual_issues.items():
+    for i, v in issues_in_scope.items():
         m = v['milestone']
-        actual_milestones[m] = milestones[m]
+        milestones_in_scope[m] = milestones[m]
 
-    return actual_milestones, actual_issues
+    return milestones_in_scope, issues_in_scope
 
 
-def print_markdown(actual_milestones, actual_issues):
-    for milestone in sorted(actual_milestones, key=lambda f: milestones[f]['date']):
-        print('[{}]({})'.format(milestone, actual_milestones[milestone]['url']))
-        for issue, data in actual_issues.items():
+def print_markdown(milestones_in_scope, issues_in_scope):
+    res = ''
+    for milestone in sorted(milestones_in_scope, key=lambda f: milestones[f]['date']):
+        res += '\n[{}]({})\n'.format(milestone, milestones_in_scope[milestone]['url'])
+        for issue, data in issues_in_scope.items():
             if data['milestone'] == milestone:
-                print('-    [{}]({})'.format(issue, data['url']))
+                res += '-    [{}]({})\n'.format(issue, data['url'])
+
+    return res.strip('\n')
 
 if __name__ == '__main__':
     parser = ArgumentParser(description = 'Lists all closed issues for a given GitHub repository from a certain date until now')
@@ -74,5 +77,5 @@ if __name__ == '__main__':
 
     json = search_for_issues(USER, REPO)
     milestones, issues = get_milestones_and_issues(json)
-    actual_milestones, actual_issues = filter_by_date(milestones, issues, parsed_date)
-    print_markdown(actual_milestones, actual_issues)
+    milestones_in_scope, issues_in_scope = filter_by_date(milestones, issues, parsed_date)
+    print(print_markdown(milestones_in_scope, issues_in_scope))

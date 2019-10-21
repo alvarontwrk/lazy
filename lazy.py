@@ -70,16 +70,16 @@ def print_markdown(milestones_in_scope, issues_in_scope):
 
 
 if __name__ == '__main__':
-    parser = ArgumentParser(description='Lists all closed issues for a'
-                            'given GitHub repository from a certain date'
+    parser = ArgumentParser(description='Lists all closed issues for a '
+                            'given GitHub repository from a certain date '
                             'until now')
     parser.add_argument('-u', '--user', required=True,
                         help='Username owner of the GitHub repository')
     parser.add_argument('-r', '--repo', required=True,
-                        help='Repository from where we want to list'
+                        help='Repository from where we want to list '
                         'the closed issues')
     parser.add_argument('-d', '--date', required=True,
-                        help='Issues will be taken from this date.'
+                        help='Issues will be taken from this date. '
                         'Format %%D-%%M-%%Y')
 
     args = parser.parse_args()
